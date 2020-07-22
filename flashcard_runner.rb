@@ -27,3 +27,9 @@ while turn_counter < round.deck.cards.length
 end
 puts "***** Game over! *****"
 puts "You had #{round.number_correct} correct guesses out of #{round.deck.cards.length} for a total score of #{round.percent_correct}%."
+categories = round.deck.cards.group_by do |card|
+  card.category
+end
+categories.each do |category, cards|
+  puts "#{category}: #{round.percent_correct_by_category(category)}% correct."
+end
