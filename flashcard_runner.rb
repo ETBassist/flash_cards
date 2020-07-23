@@ -2,14 +2,15 @@ require './lib/card'
 require './lib/deck'
 require './lib/round'
 require './lib/turn'
+require './lib/card_generator'
 
-card_1 = Card.new("What is 5 - 2?", "3", :Math)
-card_2 = Card.new("What is 4 - 2?", "2", :Math)
-card_3 = Card.new("What is 10 * 2?", "20", :Math)
-card_4 = Card.new("Who is my favorite author?", "Italo Calvino", :Legit)
-card_5 = Card.new("True or false: this statement is false.", "What", :Legit)
-cards = [card_1, card_2, card_3, card_4, card_5]
-deck = Deck.new(cards)
+# card_1 = Card.new("What is 5 - 2?", "3", :Math)
+# card_2 = Card.new("What is 4 - 2?", "2", :Math)
+# card_3 = Card.new("What is 10 * 2?", "20", :Math)
+# card_4 = Card.new("Who is my favorite author?", "Italo Calvino", :Legit)
+# card_5 = Card.new("True or false: this statement is false.", "What", :Legit)
+generated_cards = CardGenerator.new('./lib/cards.txt')
+deck = Deck.new(generated_cards.cards)
 round = Round.new(deck)
 
 print "Welcome! Press Enter to begin or Ctrl + C to quit"
